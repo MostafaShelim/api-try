@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User api</title>
+</head>
+<body>
+    <h2 id="full-name"></h2>
+    <script>
+        fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data => {
+            const Name = data.results[0].name;
+            const Fullname = `${Name.title} ${Name.first} ${Name.last}`
+            document.getElementById('full-name').innerText = Fullname;
+        })
+    </script>
+</body>
+</html>
